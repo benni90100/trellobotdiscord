@@ -18,7 +18,7 @@ let previousActions = [];
 client.on('ready', () => {
   console.log(`loggato come ${client.user.tag}`);
   sendDiscordMessage(`il bot adesso e' online`)
-  setInterval(trackTrelloChanges, 1800000); 
+  setInterval(trackTrelloChanges, 1800000); //ogni trenta minuti
   console.log('Monitoraggio delle modifiche di Trello avviato.');
 });
 
