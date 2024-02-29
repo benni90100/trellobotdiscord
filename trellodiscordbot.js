@@ -39,7 +39,12 @@ const trackTrelloChanges = async () => {
       if (!arraysAreEqual(previousActions, currentActions)) {
         console.log('Cambiamenti sulla bacheca di Trello:', currentActions);
         previousActions = currentActions;
-        sendDiscordMessage('Qualcuno ha modificato Trello!');
+        const latestAction = currentActions[currentActions.length - 1];
+      const ultimoUsername = latestAction.memberCreator.fullName;
+      const tipoModifica = latestAction.type
+      console.log(tipoModifica);
+      
+      sendDiscordMessage(`${ultimoUsername} ha modificato Trello con ${tipoModifica}!`);
       }else{
         console.log('nessuna modifica')
       }
